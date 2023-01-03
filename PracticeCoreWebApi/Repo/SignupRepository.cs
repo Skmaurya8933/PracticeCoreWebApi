@@ -23,7 +23,7 @@ namespace PracticeCoreWebApi.Repo
                 var token = await _tokenService.CreateToken(ResLogin);
                 if (token == null)
                 {
-                    obj.CommonResponseStatus.Message = "Unauthorized";
+                    obj.CommonResponseStatus.Message = "Invalid username or password.";
                     obj.CommonResponseStatus.Status = false;
                     return obj;
                 }

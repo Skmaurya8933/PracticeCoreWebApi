@@ -52,13 +52,13 @@ namespace PracticeCoreWebApi.Controllers
                 }
                 else
                 {
-                    var loAPIResponseObj = new APIResultItem<Login> { Data = responseStatus, HttpStatusCode = HttpStatusCode.Unauthorized, ErrorGUID = null };
-                    return Unauthorized(loAPIResponseObj);
+                    var loAPIResponseObj = new APIResultItem<Login> { Data = responseStatus, HttpStatusCode = HttpStatusCode.BadRequest, ErrorGUID = null };
+                    return BadRequest(loAPIResponseObj);
                 }
             }
             catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error in Register");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error in Login");
             }
         }
 
